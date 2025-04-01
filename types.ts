@@ -1,3 +1,12 @@
+interface RawForecastDay {
+    datetime: string;
+    tempmin: number;
+    tempmax: number;
+    conditions: string;
+    description: string;
+    icon: string;
+}
+
 export interface SimplifiedCurrentWeather {
     datetime: string;
     temperature: number;
