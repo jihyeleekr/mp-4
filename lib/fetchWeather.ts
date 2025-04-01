@@ -41,7 +41,7 @@ export const fetchWeatherData = async (location: string): Promise<WeatherData> =
         longDescription: day.description,
         icon: day.icon,
     }));
-    
+
     return {
         current,
         forecast,

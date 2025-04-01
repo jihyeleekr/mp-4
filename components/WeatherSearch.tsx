@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+
 import type { SimplifiedCurrentWeather, SimplifiedDailyForecast } from "@/types";
 
 interface WeatherSearchProps {
@@ -21,11 +23,14 @@ export default function WeatherSearch({
             </h3>
 
             <div className="flex items-center gap-4 mb-6">
-                <img
+                <Image
                     src={`https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/4th%20Set%20-%20Color/${current.icon}.png`}
                     alt={current.description}
+                    width={64}
+                    height={64}
                     className="w-16 h-16"
                 />
+
                 <div>
                     <p className="text-xl font-medium">{current.description}</p>
                     <p>Temperature: {current.temperature}°F</p>
@@ -44,11 +49,14 @@ export default function WeatherSearch({
                                 : "bg-white text-gray-800"
                         }`}
                     >
-                        <img
+                        <Image
                             src={`https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/4th%20Set%20-%20Color/${day.icon}.png`}
                             alt={day.shortDescription}
+                            width={40}
+                            height={40}
                             className="w-10 h-10 mr-4"
                         />
+
                         <div>
                             <p className="font-semibold">{day.date}</p>
                             <p className="font-medium">
