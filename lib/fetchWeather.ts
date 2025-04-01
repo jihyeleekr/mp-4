@@ -26,7 +26,14 @@ export const fetchWeatherData = async (location: string): Promise<WeatherData> =
         icon: data.currentConditions.icon,
     };
 
-    const forecast: SimplifiedDailyForecast[] = data.days.map((day: any) => ({
+    const forecast: SimplifiedDailyForecast[] = data.days.map((day: {
+        datetime: string;
+        tempmin: number;
+        tempmax: number;
+        conditions: string;
+        description: string;
+        icon: string;
+    }) => ({
         date: day.datetime,
         tempMin: day.tempmin,
         tempMax: day.tempmax,
@@ -34,7 +41,7 @@ export const fetchWeatherData = async (location: string): Promise<WeatherData> =
         longDescription: day.description,
         icon: day.icon,
     }));
-
+    
     return {
         current,
         forecast,
