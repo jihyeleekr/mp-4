@@ -51,7 +51,7 @@ export default function WeatherSearch({
                             alt={day.shortDescription}
                             className="w-10 h-10 mr-4"
                         />
-                        
+
                         <div>
                             <p className="font-semibold">{day.date}</p>
                             <p className="font-medium">

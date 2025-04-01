@@ -1,3 +1,4 @@
+"use server"
 import type {
     WeatherData,
     SimplifiedCurrentWeather,
@@ -15,7 +16,7 @@ interface RawForecastDay {
 }
 
 export const fetchWeatherData = async (location: string): Promise<WeatherData> => {
-    const WEATHER_API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
+    const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
 
     if (!WEATHER_API_KEY) {
         throw new Error("Missing API key");
