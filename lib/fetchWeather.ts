@@ -15,15 +15,15 @@ interface RawForecastDay {
 }
 
 export const fetchWeatherData = async (location: string): Promise<WeatherData> => {
-    const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
+    const API_KEY = process.env.WEATHER_API_KEY;
 
-    if (!WEATHER_API_KEY) {
+    if (!API_KEY) {
         throw new Error("Missing API key");
     }
 
     const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(
         location //Source for encodeURICompoent: https://www.w3schools.com/jsref/jsref_encodeuricomponent.asp
-    )}?unitGroup=us&include=current,days&key=${WEATHER_API_KEY}&contentType=json`;
+    )}?unitGroup=us&include=current,days&key=${API_KEY}&contentType=json`;
 
     const res = await fetch(url);
 
