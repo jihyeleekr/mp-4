@@ -5,7 +5,6 @@ import type {
     SimplifiedDailyForecast,
 } from "@/types";
 
-// Inline type for day item from Visual Crossing API
 interface RawForecastDay {
     datetime: string;
     tempmin: number;
@@ -23,7 +22,7 @@ export const fetchWeatherData = async (location: string): Promise<WeatherData> =
     }
 
     const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(
-        location
+        location //Source for encodeURICompoent: https://www.w3schools.com/jsref/jsref_encodeuricomponent.asp
     )}?unitGroup=us&include=current,days&key=${WEATHER_API_KEY}&contentType=json`;
 
     const res = await fetch(url);
